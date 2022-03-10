@@ -1,0 +1,29 @@
+{
+  "version": "1.0.1",
+  "description": "SASS Variables Exercise",
+  "main": "src/index.html",
+  "author": "Fran (revised by André)",
+  "scripts": {
+    "start": "run-p sass-dev watch",
+    
+    "sass-dev": "sass src/scss:src/styles --watch",
+    "sass-build": "sass src/scss:src/styles",
+
+    "server" : "http-server src",
+    "open-browser" : "xdg-open http://127.0.0.1:8080",
+    "watch": "run-p server open-browser",
+
+    "clean": "rm -rf dist src/styles",
+    "copy": "mkdir dist && rsync ./src/ ./dist/ -avr --exclude=/scss",
+    "build": "run-s clean sass-build copy"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "http-server": "^13.0.2",
+    "sass": "^1.43.2",
+    "npm-run-all": "^4.1.5"
+  }
+}
